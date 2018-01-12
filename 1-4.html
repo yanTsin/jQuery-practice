@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>利用jquery控制页面Css</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	.color1 {
+		border: 1px solid #888;
+		padding: 8px;
+		background-color: #eee;
+		text-align: center;
+	}
+	.color2 {
+		background-color: #235235;
+		color: #fff;
+	}
+
+</style>
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+	$(function () {
+		console.log(1);
+		$(".color1").click(function(){
+			$(this).toggleClass("color2");
+		}
+		);
+	});
+
+</script>
+
+</head>
+<body>
+	<div class="color1">Click to change color</div>
+</body>
+</html>
