@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery控制DOM对象</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	#main {
+		border: 1px solid #888;
+		font-size: medium;
+		width: 300px;
+	}
+	#title {
+		background-color: #eee;
+		border-bottom: 1px solid #888;
+		padding: 6px;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	form {
+		padding: 8px;
+		font-size: 85%;
+		line-height: 20px;
+	}
+
+	.submit {
+		text-align: center;
+	}
+
+	#submitbtn {
+		width: 60px;
+	}
+	#tip {
+		width: 200px;
+		background-color: #eee;
+		font-size: 85%;
+		position: relative;
+		margin: 0 auto;
+		border:1px solid;
+		display: none;
+	}
+
+</style>
+
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("#submitbtn").click(handleBtnClick);
+	});
+
+	function handleBtnClick() {
+		var userName = $("#userName").val();
+		console.log(userName)
+		var sex = $("#male").is(":checked")?"男":"女";
+		console.log(sex);
+		var marry = $("#married").is(":checked")?"已婚":"未婚";
+	 		//以上为三目表达式，对于条件表达式b ? x : y，先计算条件b，然后进行判断。如果b的值为true，计算x的值，运算结果为x的值；否则，计算y的值，运算结果为y的值。一个条件表达式绝不会既计算x，又计算y。条件运算符是右结合的，也就是说，从右向左分组计算。例如，a ? b : c ? d : e将按a ? b : (c ? d : e)执行。
+	 		$("#tip").css("display", "block").html(userName + "<br>" + sex + "<br>" +marry);
+	 		return false;
+	 		// alert(userName + "\r\n" + sex + "\r\n" +marry);   // "\r\n"为换行符。
+	 	};
+
+ 		// function returnFuc() {
+ 		// 	return handleBtnClick;
+ 		// }
+ 	</script>
+ </head>
+
+ <body>
+ 	<div id="main">
+ 		<div id = "title">请输入以下信息</div>
+ 		<form id ="content">
+ 			<label for="userName"> 姓名：</label><input type="text" id="userName"><br>
+ 			<label> 性别：</label>
+ 			<input type="radio" name="sex" id="male" value="男"><label for="male">男</label>&nbsp; 
+ 			<input type="radio" name="sex" id="female" value="女"><label for="female">女</label> <br>
+ 			&nbsp;&nbsp;&nbsp;
+ 			<input type="radio" name="marry" id="married" value="已婚"><label for="married">已婚</label> 
+ 			<input type="radio" name="marry" id="notmarried" value="未婚"><label for="notmarried">未婚</label> <br><br>
+ 			<div class="submit"><input type="submit" id="submitbtn" value="提交"><br><br></div>
+
+ 		</form>
+
+ 	</div>
+ 	<div id="tip"></div>
+ </body>
+ </html>
