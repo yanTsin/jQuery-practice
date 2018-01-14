@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>导航条在项目中的使用</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-size: medium;
+	}
+	#nav {
+		width: 320px;
+		border: 1px solid #666;
+		overflow: hidden; /*??*/
+	}
+
+	#title {
+		height: 30px;
+		background-color: #A1C1D7;
+		font-weight: bold;
+		text-align: center;
+		line-height: 30px; /*行高与所在块的高度一致，使文字垂直居中*/
+	}
+	/*.content {
+		display: none;
+	}*/
+
+	ul {
+		list-style-type: none; /*除去列表前面的小圆点*/
+		margin: 8px;
+		display: none;
+		/*-webkit-padding-start: 0px;*/ /*取消浏览器（qq浏览器）的默认边距*/
+	}
+
+	li {
+
+		font-size: 80%;
+		width: 80px;
+		height: 20px;
+		float: left;
+	}
+
+	li span {
+		font-style: italic;
+		font-size: 75%;
+	}
+
+	#foot {
+		width:50px;
+		height: 30px;
+		line-height: 30px;
+		float: right;
+		font-size: 80%;
+	}		
+	</style>
+
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$("#title").click(function(){
+				$("#details").css("display", "block");
+			});
+			$("#foot").click(function(){
+				if ($("#details").is(":visible")) {
+					$("#details").css("display", "none");
+				}
+			});
+				
+		});
+	</script>
+</head>
+<body>
+	<div id="nav">
+	<div id="title">图书分类</div>
+	<!--<div class="content">-->
+		<ul id="details">
+			<li>
+				<a href="#">小说</a><span>(1110)</span></li>
+			<li>
+				<a href="#">文艺</a><span>(230) </span></li>
+			<li>
+				<a href="#">青春</a><span>(1430) </span></li>
+			<li>
+				<a href="#">少儿</a><span>(1560) </span></li>
+			<li>
+				<a href="#">生活</a><span>(870) </span></li>
+			<li>
+				<a href="#">社科</a><span>(1460) </span></li>
+			<li>
+				<a href="#">管理</a><span>(1450) </span></li>
+			<li>
+				<a href="#">计算机</a><span>(1780) </span></li>
+			<li>
+				<a href="#">教育</a><span>(930) </span></li>
+			<li>
+				<a href="#">工具书</a><span>(3450) </span></li>
+			<li>
+				<a href="#">引进版</a><span>(980) </span></li>
+			<li>
+				<a href="#">其他</a><span>(3230) </span></li>
+			<div id="foot">
+				<a href="#">收起</a>
+			</div>
+		</ul>
+	<!--</div>-->
+
+</div>
+
+</body>
+</html>
